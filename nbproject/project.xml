@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.java.j2seproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+            <name>maryTTS</name>
+            <explicit-platform explicit-source-supported="true"/>
+            <source-roots>
+                <root id="src.marytts-assembly.dir" name="marytts-assembly"/>
+                <root id="src.marytts-builder.dir" name="marytts-builder"/>
+                <root id="src.marytts-client.dir" name="marytts-client"/>
+                <root id="src.marytts-common.dir" name="marytts-common"/>
+                <root id="src.marytts-runtime.dir" name="marytts-runtime"/>
+                <root id="src.marytts-signalproc.dir" name="marytts-signalproc"/>
+                <root id="src.marytts-lang-en.dir" name="marytts-lang-en"/>
+                <root id="src.marytts-lang-fr.dir" name="marytts-lang-fr"/>
+            </source-roots>
+            <test-roots>
+                <root id="test.src.dir"/>
+            </test-roots>
+        </data>
+    </configuration>
+</project>

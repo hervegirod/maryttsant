@@ -12,5 +12,8 @@ The project is available at [github.com/hervegirod/maryttsant](https://github.co
 # Licence
 The licence is the maryTTS licence. See [LICENSE](LICENSE.md).
 
+# Dependencies
+See [Dependencies](DEPENDENCIES.md).
+
 # Documentation
 The documentation for the original maryTTS project is [here](https://github.com/marytts/marytts).

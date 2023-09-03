@@ -22,3 +22,10 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/build/
+/dist/
+/maryTTSTest/build/
+/maryTTSTest/dist/
+!/maryTTSTest/config/voice-upmc-jessica-hsmm-5.2.jar
+!/maryTTSTest/config/voice-upmc-pierre-hsmm-5.2.jar
+!/maryTTSTest/config/voice-enst-camille-hsmm-5.2.jar

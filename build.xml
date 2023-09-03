@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<!-- By default, only the Clean and Build commands use this build script. -->
+<!-- Commands such as Run, Debug, and Test only use this build script if -->
+<!-- the Compile on Save feature is turned off for the project. -->
+<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
+<!-- in the project's Project Properties dialog box.-->
+<project name="maryTTS" default="default" basedir=".">
+   <description>Builds, tests, and runs the project maryTTS.</description>
+   <import file="nbproject/build-impl.xml"/>
+   <!-- =================================================================== -->
+   <!-- post NB init -->
+   <!-- =================================================================== -->
+   <target name="-post-init" depends="-init-project" >
+      <!-- general properties definition -->
+      <property name="jdk" value="C:\Program Files\Java\jdk1.8.0_202"/>
+      <property name="version" value="5.2.1" />
+      <property name="archiveName" value="maryTTS"/>
+      <property name="libs.dir" value="lib" />
+      <property name="liblangs.dir" value="liblangs" />
+      <property name="voices.dir" value="voices" />
+      <property name="src.dir" value="${src.marytts-common.dir}/../" />
+      <property name="javadoc.api" value="${dist.javadoc.dir}/api" />
+      <property name="javadocEXE" value="${jdk}/bin/javadoc.exe"/>
+      <condition property="javadoc.exists">
+         <available file="${dist.javadoc.dir}" type="dir"/>
+      </condition>
+      <condition property="liblangs.notexists">
+         <not>
+            <available file="${liblangs.dir}" type="dir"/>
+         </not>
+      </condition>
+   </target>
+
+   <!-- =================================================================== -->
+   <!-- zip files -->
+   <!-- =================================================================== -->
+   <!-- zip binaries -->
+   <target depends="-post-init" name="-zipbinaries" >
+      <!-- zip binary files -->
+      <zip compress="true" defaultexcludes="true" zipfile="${dist.dir}/${archiveName}-bin-${version}.zip">
+         <fileset description="libs" dir=".">
+            <include name="${libs.dir}/**/*.*"/>
+         </fileset>
+         <fileset description="liblangs" dir=".">
+            <include name="${liblangs.dir}/**/*.*"/>
+         </fileset>
+         <fileset description="voices" dir=".">
+            <include name="${voices}/**/*.*"/>
+         </fileset>
+         <fileset description="binaries" dir="${dist.dir}">
+            <include name="marytts-client-${version}.jar"/>
+            <include name="marytts-runtime-${version}.jar"/>
+         </fileset>
+         <fileset description="description" dir=".">
+            <include name="LICENCE.md"/>
+            <include name="README.md"/>
+         </fileset>
+      </zip>
+   </target>
+   <target depends="-post-init" name="-zipsources">
+      <!-- zip source files -->
+      <zip compress="true" defaultexcludes="true" zipfile="${dist.dir}/${archiveName}-src-${version}.zip">
+         <fileset description="source directory" dir="${src.dir}/..">
+            <include name="src/**/*.*"/>
+         </fileset>
+         <fileset description="binaries" dir="${dist.dir}">
+            <include name="marytts-client-${version}.jar"/>
+            <include name="marytts-runtime-${version}.jar"/>
+         </fileset>
+         <fileset description="libs" dir=".">
+            <include name="${libs.dir}/**/*.*"/>
+         </fileset>
+         <fileset description="liblangs" dir=".">
+            <include name="${libslang.dir}/**/*.*"/>
+         </fileset>
+         <fileset description="voices" dir=".">
+            <include name="${voices}/**/*.*"/>
+         </fileset>
+         <fileset description="miscellanous" dir=".">
+            <include name="nbproject/**/*.*"/>
+            <include name="build.xml"/>
+         </fileset>
+         <fileset description="description" dir=".">
+            <include name="LICENCE.md"/>
+            <include name="README.md"/>
+         </fileset>
+      </zip>
+   </target>
+
+   <target depends="-post-init" name="-ziptests">
+      <!-- zip test files -->
+      <zip compress="true" defaultexcludes="true" zipfile="${dist.dir}/${archiveName}-test-${version}.zip">
+         <fileset description="source directory" dir="${src.dir}/..">
+            <include name="test/**/*.*"/>
+         </fileset>
+         <fileset description="test project source directory" dir="${src.dir}/..">
+            <include name="maryTTSTest/src/**/*.*"/>
+         </fileset>
+         <fileset description="test project miscellanous" dir="${src.dir}/..">
+            <include name="maryTTSTest/nbproject/**/*.*"/>
+            <include name="maryTTSTest/build.xml"/>
+            <include name="maryTTSTest/config/**/*.*"/>
+         </fileset>
+      </zip>
+   </target>
+
+   <target depends="-post-init, -zipbinaries, -zipsources, -ziptests" description="create zip files" name="zip">
+   </target>
+
+   <!-- =================================================================== -->
+   <!-- NB overwrite targets : jar -->
+   <!-- =================================================================== -->
+   <target depends="init,compile,-pre-jar,-do-jar-without-manifest,-post-jar" description="Build JAR." name="jar"/>
+   <target name="-do-jar-without-manifest" depends="-createlibs, -runtime, -client, -lang-en, -lang-fr" />
+
+   <target name="-createlibs" depends="init,compile,-pre-pre-jar,-pre-jar" if="liblangs.noexists">
+      <mkdir dir="${liblangs}" />
+   </target>
+
+   <target name="-client" depends="init,compile,-pre-pre-jar,-pre-jar" >
+      <jar description="jar binary file" compress="true" jarfile="${dist.dir}/marytts-client-${version}.jar"
+           manifest="${src.marytts-client.dir}/manifest.mf">
+         <fileset defaultexcludes="yes" dir="${build.classes.dir}" >
+            <include name="jtok-user/**/*.xml"/>
+            <include name="marytts/client/**/*.class"/>
+            <include name="marytts/signalproc/**/*.class"/>
+            <include name="marytts/modules/phonemiser/**/*.class"/>
+            <include name="marytts/fst/**/*.class"/>
+            <include name="marytts/exceptions/**/*.class"/>
+            <include name="marytts/dtd/**/*.dtd"/>
+            <include name="marytts/dtd/**/*.ent"/>
+            <include name="marytts/machinelearning/**/*.class"/>
+            <include name="marytts/util/**/*.class"/>
+            <include name="marytts/util/**/*.properties"/>
+            <include name="marytts/tools/**/*.class"/>
+            <include name="marytts/*.class"/>
+            <include name="marytts/*.txt"/>
+         </fileset>
+      </jar>
+      <copy todir=".">
+         <fileset defaultexcludes="no" dir="${dist.dir}">
+            <include name="marytts-client-${version}.jar"/>
+            <include name="marytts-runtime-${version}.jar"/>
+         </fileset>
+      </copy>
+   </target>
+
+   <target name="-runtime" depends="init,compile,-pre-pre-jar,-pre-jar" >
+      <jar description="jar binary file" compress="true" jarfile="${dist.dir}/marytts-runtime-${version}.jar"
+           manifest="${src.marytts-runtime.dir}/manifest.mf">
+         <service type="marytts.config.MaryConfig" provider="marytts.config.MainConfig" />
+         <fileset defaultexcludes="yes" dir="${build.classes.dir}" >
+            <include name="jtok-user/**/*.xml"/>
+            <include name="marytts/signalproc/**/*.class"/>
+            <include name="marytts/modules/*.class"/>
+            <include name="marytts/modules/*.xsl"/>
+            <include name="marytts/modules/phonemiser/**/*.class"/>
+            <include name="marytts/modules/synthesis/**/*.class"/>
+            <include name="marytts/modules/acoustic/**/*.class"/>
+            <include name="marytts/modules/prosody/**/*.class"/>
+            <include name="marytts/modules/prosody/**/*.xml"/>
+            <include name="marytts/modules/prosody/**/*.properties"/>
+            <include name="marytts/server/**/*.class"/>
+            <include name="marytts/machinelearning/**/*.class"/>
+            <include name="marytts/vocalizations/**/*.class"/>
+            <include name="marytts/util/**/*.class"/>
+            <include name="marytts/util/**/*.properties"/>
+            <include name="marytts/htsengine/**/*.class"/>
+            <include name="marytts/datatypes/**/*.class"/>
+            <include name="marytts/config/**/*.class"/>
+            <include name="marytts/config/**/*.config"/>
+            <include name="marytts/cart/**/*.class"/>
+            <include name="marytts/exceptions/**/*.class"/>
+            <include name="marytts/unitselection/**/*.class"/>
+            <include name="marytts/dtd/**/*.dtd"/>
+            <include name="marytts/dtd/**/*.ent"/>
+            <include name="marytts/fst/**/*.class"/>
+            <include name="marytts/features/**/*.class"/>
+            <include name="marytts/*.class"/>
+            <include name="marytts/*.txt"/>
+         </fileset>
+      </jar>
+   </target>
+
+   <target name="-lang-en" depends="init,compile,-pre-pre-jar,-pre-jar" >
+      <jar description="jar binary file" compress="true" jarfile="${dist.dir}/marytts-lang-en-${version}.jar">
+         <service type="marytts.config.MaryConfig" provider="marytts.language.en.EnglishConfig" />
+         <fileset defaultexcludes="yes" dir="${build.classes.dir}" >
+            <include name="jtok-user/**/*.xml"/>
+            <include name="marytts/language/en/**/*.*"/>
+            <include name="marytts/language/en_GB/**/*.*"/>
+            <include name="marytts/language/en_US/**/*.*"/>
+         </fileset>
+      </jar>
+      <copy todir="${liblangs.dir}">
+         <fileset defaultexcludes="no" dir="${dist.dir}">
+            <include name="marytts-lang-en-${version}.jar"/>
+         </fileset>
+      </copy>
+   </target>
+
+   <target name="-lang-fr" depends="init,compile,-pre-pre-jar,-pre-jar" >
+      <jar description="jar binary file" compress="true" jarfile="${dist.dir}/marytts-lang-fr-${version}.jar">
+         <service type="marytts.config.MaryConfig" provider="marytts.language.fr.FrenchConfig" />
+         <fileset defaultexcludes="yes" dir="${build.classes.dir}" >
+            <include name="jtok-user/**/*.xml"/>
+            <include name="marytts/language/fr/**/*.*"/>
+         </fileset>
+      </jar>
+      <copy todir="${liblangs.dir}">
+         <fileset defaultexcludes="no" dir="${dist.dir}">
+            <include name="marytts-lang-fr-${version}.jar"/>
+         </fileset>
+      </copy>
+   </target>
+</project>
