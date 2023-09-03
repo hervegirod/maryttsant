@@ -82,7 +82,7 @@
             <include name="${libs.dir}/**/*.*"/>
          </fileset>
          <fileset description="liblangs" dir=".">
-            <include name="${libslang.dir}/**/*.*"/>
+            <include name="${liblangs.dir}/**/*.*"/>
          </fileset>
          <fileset description="libclient" dir=".">
             <include name="${libclient.dir}/**/*.*"/>
