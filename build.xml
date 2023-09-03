@@ -62,7 +62,7 @@
             <include name="*.bat"/>
          </fileset>
          <fileset description="description" dir=".">
-            <include name="LICENCE.md"/>
+            <include name="LICENSE.md"/>
             <include name="README.md"/>
             <include name="DEPENDENCIES.md"/>
          </fileset>
@@ -97,7 +97,7 @@
             <include name="*.gitignore"/>
          </fileset>
          <fileset description="description" dir=".">
-            <include name="LICENCE.md"/>
+            <include name="LICENSE.md"/>
             <include name="README.md"/>
             <include name="DEPENDENCIES.md"/>
          </fileset>
