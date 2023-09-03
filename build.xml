@@ -20,6 +20,7 @@
       <property name="archiveName" value="maryTTS"/>
       <property name="libs.dir" value="lib" />
       <property name="liblangs.dir" value="liblangs" />
+      <property name="libclient.dir" value="libclient" />
       <property name="voices.dir" value="voices" />
       <property name="src.dir" value="${src.marytts-common.dir}/../" />
       <property name="javadoc.api" value="${dist.javadoc.dir}/api" />
@@ -47,6 +48,9 @@
          <fileset description="liblangs" dir=".">
             <include name="${liblangs.dir}/**/*.*"/>
          </fileset>
+         <fileset description="libclient" dir=".">
+            <include name="${libclient.dir}/**/*.*"/>
+         </fileset>
          <fileset description="voices" dir=".">
             <include name="${voices}/**/*.*"/>
          </fileset>
@@ -54,9 +58,13 @@
             <include name="marytts-client-${version}.jar"/>
             <include name="marytts-runtime-${version}.jar"/>
          </fileset>
+         <fileset description="miscellanous" dir=".">
+            <include name="*.bat"/>
+         </fileset>
          <fileset description="description" dir=".">
             <include name="LICENCE.md"/>
             <include name="README.md"/>
+            <include name="DEPENDENCIES.md"/>
          </fileset>
       </zip>
    </target>
@@ -76,16 +84,22 @@
          <fileset description="liblangs" dir=".">
             <include name="${libslang.dir}/**/*.*"/>
          </fileset>
+         <fileset description="libclient" dir=".">
+            <include name="${libclient.dir}/**/*.*"/>
+         </fileset>
          <fileset description="voices" dir=".">
             <include name="${voices}/**/*.*"/>
          </fileset>
          <fileset description="miscellanous" dir=".">
             <include name="nbproject/**/*.*"/>
             <include name="build.xml"/>
+            <include name="*.bat"/>
+            <include name="*.gitignore"/>
          </fileset>
          <fileset description="description" dir=".">
             <include name="LICENCE.md"/>
             <include name="README.md"/>
+            <include name="DEPENDENCIES.md"/>
          </fileset>
       </zip>
    </target>
