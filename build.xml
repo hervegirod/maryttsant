@@ -52,7 +52,7 @@
             <include name="${libclient.dir}/**/*.*"/>
          </fileset>
          <fileset description="voices" dir=".">
-            <include name="${voices}/**/*.*"/>
+            <include name="${voices.dir}/**/*.*"/>
          </fileset>
          <fileset description="binaries" dir="${dist.dir}">
             <include name="marytts-client-${version}.jar"/>
@@ -88,7 +88,7 @@
             <include name="${libclient.dir}/**/*.*"/>
          </fileset>
          <fileset description="voices" dir=".">
-            <include name="${voices}/**/*.*"/>
+            <include name="${voices.dir}/**/*.*"/>
          </fileset>
          <fileset description="miscellanous" dir=".">
             <include name="nbproject/**/*.*"/>
@@ -130,7 +130,7 @@
    <target depends="init,compile,-pre-jar,-do-jar-without-manifest,-post-jar" description="Build JAR." name="jar"/>
    <target name="-do-jar-without-manifest" depends="-createlibs, -runtime, -client, -lang-en, -lang-fr" />
 
-   <target name="-createlibs" depends="init,compile,-pre-pre-jar,-pre-jar" if="liblangs.noexists">
+   <target name="-createlibs" depends="init,compile,-pre-pre-jar,-pre-jar" if="liblangs.notexists">
       <mkdir dir="${liblangs}" />
    </target>
 

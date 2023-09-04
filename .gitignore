@@ -27,3 +27,8 @@ replay_pid*
 /maryTTSTest/build/
 /maryTTSTest/dist/
 /nbproject/private/
+/maryTTSTest/nbproject/private/
+!/lib/httpcore-4.4.12.jar
+!/lib/slf4j-api-1.7.30.jar
+!/lib/slf4j-log4j12-1.7.26.jar
+!/lib/commons-lang3-3.10.jar
