@@ -6,6 +6,7 @@ The version history of this library presents:
 ## maryTTS 5.2.1
 ## build 1
  - Port the build system to ant
+ - Fix the javadoc
  - Extract the dependencies to external jars. Note that github projects for [Jampack](https://github.com/hervegirod/JampackSaved) and [sgt](https://github.com/hervegirod/sgt) had to be created
  - Add a Main-Class property to the client and runtime manifests to show the maryTTS and build (implementation) versions
  - Update [slf4j-api](https://mvnrepository.com/artifact/org.slf4j/slf4j-api/1.7.30) version from 1.6.1 to 1.7.30
