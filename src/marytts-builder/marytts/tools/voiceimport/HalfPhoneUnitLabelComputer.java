@@ -32,7 +32,7 @@ import marytts.signalproc.analysis.EnergyContourRms;
 import marytts.util.math.MathUtils;
 import marytts.util.signal.SignalProcUtils;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 
 /**
  * Compute unit labels from phone labels.

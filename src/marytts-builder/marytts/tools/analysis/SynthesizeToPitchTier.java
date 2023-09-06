@@ -14,16 +14,14 @@ import java.io.OutputStream;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import marytts.client.MaryClient;
-import marytts.config.LanguageConfig;
 import marytts.exceptions.MaryConfigurationException;
 import marytts.modules.phonemiser.AllophoneSet;
 import marytts.signalproc.analysis.Labels;
-import marytts.util.MaryUtils;
 import marytts.util.data.text.PraatPitchTier;
 import marytts.util.dom.DomUtils;
 
@@ -35,7 +33,6 @@ import marytts.util.dom.DomUtils;
  * 
  */
 public class SynthesizeToPitchTier {
-
 	private MaryClient mary;
 	private String inputFormat;
 	private String locale;

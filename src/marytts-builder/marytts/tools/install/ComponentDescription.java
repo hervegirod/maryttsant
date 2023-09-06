@@ -51,7 +51,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import marytts.util.MaryUtils;
 import marytts.util.dom.DomUtils;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;

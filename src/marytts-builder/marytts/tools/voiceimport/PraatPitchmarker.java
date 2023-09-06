@@ -34,7 +34,7 @@ import marytts.util.io.General;
 import marytts.util.math.ArrayUtils;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class PraatPitchmarker extends VoiceImportComponent {
 	protected DatabaseLayout db = null;

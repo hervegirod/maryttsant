@@ -17,9 +17,7 @@ import marytts.util.MaryUtils;
 import marytts.util.io.StreamGobbler;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.text.StrSubstitutor;
-
-import com.twmacinta.util.MD5;
+import org.apache.commons.lang3.text.StrSubstitutor;
 
 /**
  * @author marc
@@ -336,10 +334,8 @@ public class VoiceCompiler extends VoiceImportComponent {
 			return mainResourcesDir;
 		}
 
-		private void copyWithVarSubstitution(String resourceName, File destination, StrSubstitutor... moreSubstitutors)
-				throws IOException {
-			String resource = marytts.util.io.FileUtils.getStreamAsString(
-					getClass().getResourceAsStream("templates/" + resourceName), "UTF-8");
+		private void copyWithVarSubstitution(String resourceName, File destination, StrSubstitutor... moreSubstitutors) throws IOException {
+			String resource = marytts.util.io.FileUtils.getStreamAsString(getClass().getResourceAsStream("templates/" + resourceName), "UTF-8");
 			String resourceWithReplacements = substitutor.replace(resource);
 			for (StrSubstitutor more : moreSubstitutors) {
 				resourceWithReplacements = more.replace(resourceWithReplacements);
