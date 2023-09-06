@@ -65,6 +65,7 @@
             <include name="LICENSE.md"/>
             <include name="README.md"/>
             <include name="DEPENDENCIES.md"/>
+            <include name="HISTORY.md"/> 
          </fileset>
       </zip>
    </target>
@@ -100,6 +101,7 @@
             <include name="LICENSE.md"/>
             <include name="README.md"/>
             <include name="DEPENDENCIES.md"/>
+            <include name="HISTORY.md"/>
          </fileset>
       </zip>
    </target>
