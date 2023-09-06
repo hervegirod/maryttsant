@@ -5,7 +5,7 @@ The following lists the versions of the dependencies and where to get them:
 * Jampack: [github.com/hervegirod/JampackSaved](https://github.com/hervegirod/JampackSaved)
 * commons-collections-3.2.2: [mvnrepository.com/artifact/commons-collections/commons-collections/3.2.](https://mvnrepository.com/artifact/commons-collections/commons-collections/3.2.2)
 * commons-io-2.6: [mvnrepository.com/artifact/commons-io/commons-io/2.6](https://mvnrepository.com/artifact/commons-io/commons-io/2.6)
-* commons-lang3-3.10: [mvnrepository.com/artifact/commons-lang/commons-lang3/3.10](https://mvnrepository.com/artifact/commons-lang/commons-lang3/3.10)
+* commons-lang3-3.10: [mvnrepository.com/artifact/commons-lang/commons-lang3/3.3.10](https://mvnrepository.com/artifact/commons-lang/commons-lang3/3.3.10)
 * commons-logging-1.2: [mvnrepository.com/artifact/commons-logging/commons-logging/1.2](https://mvnrepository.com/artifact/commons-logging/commons-logging/1.2)
 * emotionml-checker-java-1.2.2: [mvnrepository.com/artifact/de.dfki.mary/emotionml-checker-java/1.2.2](https://mvnrepository.com/artifact/de.dfki.mary/emotionml-checker-java/1.2.2)
 * guava-14.0.1: [mvnrepository.com/artifact/com.google.guava/guava/14.0.1](https://mvnrepository.com/artifact/com.google.guava/guava/14.0.1)
