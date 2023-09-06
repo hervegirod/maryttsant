@@ -65,7 +65,7 @@
             <include name="LICENSE.md"/>
             <include name="README.md"/>
             <include name="DEPENDENCIES.md"/>
-            <include name="HISTORY.md"/> 
+            <include name="HISTORY.md"/>
          </fileset>
       </zip>
    </target>
@@ -106,6 +106,15 @@
       </zip>
    </target>
 
+   <target depends="-post-init" name="-zipjavadocs">
+      <!-- zip test files -->
+      <zip compress="true" defaultexcludes="true" zipfile="${dist.dir}/${archiveName}-javadoc-${version}.zip">
+         <fileset description="javadoc directory" dir="${dist.dir}">
+            <include name="javadoc/**/*.*"/>
+         </fileset>
+      </zip>
+   </target>
+
    <target depends="-post-init" name="-ziptests">
       <!-- zip test files -->
       <zip compress="true" defaultexcludes="true" zipfile="${dist.dir}/${archiveName}-test-${version}.zip">
@@ -123,7 +132,7 @@
       </zip>
    </target>
 
-   <target depends="-post-init, -zipbinaries, -zipsources, -ziptests" description="create zip files" name="zip">
+   <target depends="-post-init, -zipbinaries, -zipsources, -zipjavadocs, -ziptests" description="create zip files" name="zip">
    </target>
 
    <!-- =================================================================== -->
