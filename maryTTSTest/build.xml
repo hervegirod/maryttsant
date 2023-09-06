@@ -25,11 +25,11 @@
       </condition>
    </target>
 
-   <target name="-createlibs" depends="init,compile,-pre-pre-jar,-pre-jar" if="lib.notexists">
-      <mkdir dir="${libs.dir}" />
+   <target name="-createlibs" depends="init" if="lib.notexists">
+      <mkdir dir="lib" />
    </target>
 
-   <target name="copy-libs" description="copy-libs" depends="init,compile,-pre-pre-jar,-pre-jar, -createlibs" >
+   <target name="copy-libs" description="copy-libs" depends="init, -createlibs" >
       <copy todir="lib">
          <fileset defaultexcludes="no" dir="${libs.dir}">
             <include name="*.jar"/>
