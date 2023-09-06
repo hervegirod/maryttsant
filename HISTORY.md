@@ -8,6 +8,6 @@
  - Update [slf4j-api](https://mvnrepository.com/artifact/org.slf4j/slf4j-api/1.7.30) version from 1.6.1 to 1.7.30
  - Update [slf4j-log4j12](https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12/1.7.26) version from 1.6.1 to 1.7.26
  - Update [httpcore](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore/4.4.12) version from 4.1 to 4.4.12
- - Update [commons-lang 2.6](https://mvnrepository.com/artifact/commons-lang/commons-lang/2.6) to [commons-lang3 3.10](https://mvnrepository.com/artifact/commons-lang/commons-lang3/3.10)
+ - Update [commons-lang 2.6](https://mvnrepository.com/artifact/commons-lang/commons-lang/2.6) to [commons-lang3 3.3.10](https://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.13.0)
 
 
